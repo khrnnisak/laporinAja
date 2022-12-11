@@ -18,6 +18,9 @@
                     @if($user)
                           <table class="table table-sm">
                             <tbody>
+                            <tr>
+                                <td><img src="{{ asset('storage/'.$user->user_foto) }}"  width="120px"></td>
+                            </tr>
                             @if($otherData)  
                               <tr>
                                 <td class="table-info">Email</td>
@@ -36,12 +39,6 @@
                                 <td class="table-info">Nama Akhir</td>
                                 <td>: {{ $user->nama_akhir }}</td>
                               </tr>
-                              @if($otherData)  
-                              <tr>
-                                <td class="table-info">Email</td>
-                                <td>: {{$otherData->email  }}</td>
-                              </tr> 
-                              @endif
                               <tr>
                                 <td class="table-info" width="200px">Alamat</td>
                                 <td>: {{ $user->alamat }}</td>
@@ -108,7 +105,11 @@
                                     <a class="btn btn-success" href="{{ route('lengkap') }}">Lengkapi data</a>
                                 </div>
                     @endif
-
+                    <div class="float-right my-2">
+                        &nbsp;
+                        &nbsp;
+                        <a class="btn btn-success" href="{{ route('user') }}">Kembali</a>
+                    </div>
             </div>
         </div>
     </div>

@@ -14,9 +14,30 @@
                             </div>
                         @endif
                         <br>
-                        <h5>Welcome, You are admin!</h5>
-                        
+                        <h5>Welcome, You are user!</h5>
                     </div>
+                    <div class="col-lg-12 margin-tb">
+                                <div class="float-right my-2">
+                                    &nbsp;
+                                    &nbsp;
+                                    <a class="btn btn-success" href="{{ route('admin') }}">Beranda</a>
+                                </div>
+                                <div class="float-right my-2">
+                                    &nbsp;
+                                    &nbsp;
+                                    <a class="btn btn-success" href="{{ route('admin.showLaporan') }}">Laporan</a>
+                                </div>
+                                <div class="float-right my-2">
+                                    &nbsp;
+                                    &nbsp;
+                                    <a class="btn btn-success" href="{{ route('admin.showPengguna') }}">Data Pengguna</a>
+                                </div>
+                                <div class="float-right my-2">
+                                    &nbsp;
+                                    &nbsp;
+                                    <a class="btn btn-success" href="{{ route('admin.profil') }}">Profil</a>
+                                </div>
+                            </div>
                 </div>
             </div>
         </div>

@@ -23,6 +23,18 @@
                         <br><br>
 
                         <div class="form-group row">
+                            <label for="user_foto" class="col-md-4 col-form-label text-md-right">{{ __('Upload Foto') }}</label>
+                            <div class="col-md-7">
+                                <input id="user_foto" type="file" class="form-control{{ $errors->has('user_foto') ? ' is-invalid' : '' }}" name="user_foto" value="{{ old('user_foto') }}" required autofocus>
+
+                                @if ($errors->has('user_foto'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('user_foto') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="nama_awal" class="col-md-4 col-form-label text-md-right">{{ __('Nama Awal') }}</label>
 
                             <div class="col-md-6">

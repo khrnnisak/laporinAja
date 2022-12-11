@@ -21,6 +21,7 @@ class CreatePelaporTable extends Migration
             $table->string('kota', 100);
             $table->string('provinsi', 100);
             $table->string('kode_pos', 20);
+            $table->text('user_foto')->nullable();
 
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('user')->onDelete('cascade');

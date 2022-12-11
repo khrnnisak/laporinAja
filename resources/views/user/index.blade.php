@@ -25,12 +25,12 @@
                                 <div class="float-right my-2">
                                     &nbsp;
                                     &nbsp;
-                                    <a class="btn btn-success" href="">Buat Laporan</a>
+                                    <a class="btn btn-success" href="{{ route('buatLaporan') }}">Buat Laporan</a>
                                 </div>
                                 <div class="float-right my-2">
                                     &nbsp;
                                     &nbsp;
-                                    <a class="btn btn-success" href="">Riwayat Laporan</a>
+                                    <a class="btn btn-success" href="{{ route('riwayatLaporan') }}">Riwayat Laporan</a>
                                 </div>
                                 <div class="float-right my-2">
                                     &nbsp;

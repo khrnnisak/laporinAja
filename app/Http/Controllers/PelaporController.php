@@ -43,14 +43,18 @@ class PelaporController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        if ($request->file('user_foto')){
+            $image_name = $request->file('user_foto')->store('image', 'public');
+        }
+            $request->validate([
                 'nama_awal' => 'required|string|max:200',
                 'nama_akhir' => 'required|string|max:200',
                 'alamat' => 'required',
                 'kota' => 'required|string|max:100',
                 'provinsi' => 'required|string|max:100',
                 'kode_pos' => 'required|string|max:20',
-            ]);            
+                'user_foto' => 'mimes:jpeg,png,jpg|max:2048',
+            ]);         
             $pelapor = new Pelapor;
             $pelapor->nama_awal = $request->get('nama_awal');
             $pelapor->nama_akhir = $request->get('nama_akhir');
@@ -58,6 +62,7 @@ class PelaporController extends Controller
             $pelapor->kota = $request->get('kota');
             $pelapor->provinsi = $request->get('provinsi');
             $pelapor->kode_pos = $request->get('kode_pos');
+            $pelapor->user_foto = $image_name;
 
             $user = Auth::user()->id;
             $pelapor->user_id = $user;
@@ -105,26 +110,31 @@ class PelaporController extends Controller
      */
     public function update(Request $request)
     {
-        $request->validate([
-            'nama_awal' => 'required|string|max:200',
-            'nama_akhir' => 'required|string|max:200',
-            'alamat' => 'required',
-            'kota' => 'required|string|max:100',
-            'provinsi' => 'required|string|max:100',
-            'kode_pos' => 'required|string|max:20',
-        ]);            
-        $user = Auth::user()->id;
-        $pelapor = Pelapor::where('user_id', $user)->first(); 
-        $pelapor->nama_awal = $request->get('nama_awal');
-        $pelapor->nama_akhir = $request->get('nama_akhir');
-        $pelapor->alamat = $request->get('alamat');
-        $pelapor->kota = $request->get('kota');
-        $pelapor->provinsi = $request->get('provinsi');
-        $pelapor->kode_pos = $request->get('kode_pos');    
-        $pelapor->user_id = $user;
-        
-        $pelapor->save();
-        return redirect()->route('profil')->with('success', 'Data berhasil disimpan!');
+        if ($request->file('user_foto')){
+            $image_name = $request->file('user_foto')->store('image', 'public');
+        }
+            $request->validate([
+                'nama_awal' => 'required|string|max:200',
+                'nama_akhir' => 'required|string|max:200',
+                'alamat' => 'required',
+                'kota' => 'required|string|max:100',
+                'provinsi' => 'required|string|max:100',
+                'kode_pos' => 'required|string|max:20',
+                'user_foto' => 'mimes:jpeg,png,jpg|max:2048',
+                    ]);  
+                $user = Auth::user()->id;
+                $pelapor = Pelapor::where('user_id', $user)->first(); 
+                $pelapor->nama_awal = $request->get('nama_awal');
+                $pelapor->nama_akhir = $request->get('nama_akhir');
+                $pelapor->alamat = $request->get('alamat');
+                $pelapor->kota = $request->get('kota');
+                $pelapor->provinsi = $request->get('provinsi');
+                $pelapor->kode_pos = $request->get('kode_pos'); 
+                $pelapor->user_foto = $image_name;   
+                $pelapor->user_id = $user;
+                
+                $pelapor->save();
+                return redirect()->route('profil')->with('success', 'Data berhasil disimpan!');
     }
 
     /**

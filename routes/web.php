@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PelaporController;
+use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\FeedbackController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,17 +25,16 @@ Auth::Routes();
 
 Route::group(['prefix' => '/admin'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('admin')->middleware('admin');
-    //Route::get('/index', [AdminController::class, 'index'])->name('admin.index')->middleware('admin');
-    // Route::get('/create', [AdminController::class, 'create'])->name('admin.create')->middleware('admin');
-    // Route::post('/create/user', [AdminController::class, 'store'])->name('admin.store')->middleware('admin');
-    // //Route::get('/search', [AdminController::class, 'search'])->name('admin.search')->middleware('admin');
-    // Route::get('/show/{id}', [AdminController::class, 'show'])->name('admin.show')->middleware('admin');
-    // Route::get('/edit/{id}', [AdminController::class, 'edit'])->name('admin.edit')->middleware('admin');
-    // Route::put('/update/{id}', [AdminController::class, 'update'])->name('admin.update')->middleware('admin');
-    // Route::get('/go/{id}', [AdminController::class, 'go'])->name('admin.go')->middleware('admin');
-    // Route::put('/status/{id}', [AdminController::class, 'status'])->name('admin.status')->middleware('admin');
-    // Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy')->middleware('admin');
-    // //Route::get('/data/user', [UserController::class, 'index'])->name('index')->middleware('admin'); //kenapa malah nampilkan create form pendaftaran?
+    Route::get('/dataPengguna', [AdminController::class, 'showPengguna'])->name('admin.showPengguna')->middleware('admin');
+    Route::get('/dataLaporan', [AdminController::class, 'showLaporan'])->name('admin.showLaporan')->middleware('admin');
+    Route::get('/showDetail/{id}', [AdminController::class, 'showDetailLaporan'])->name('showDetailLaporan')->middleware('admin');
+    Route::put('/status/{id}', [AdminController::class, 'status'])->name('admin.status')->middleware('admin');
+    Route::get('/createFeedback/{id}', [FeedbackController::class, 'create'])->name('feedback.create')->middleware('admin');
+    Route::post('/addFeedback/{id}', [FeedbackController::class, 'store'])->name('addFeedback')->middleware('admin');
+    Route::get('/showFeedback/{id}', [FeedbackController::class, 'show'])->name('showFeedback')->middleware('admin');
+    Route::get('/profilAdmin', [AdminController::class, 'show'])->name('admin.profil')->middleware('admin');
+    Route::delete('/delete/{id}', [AdminController::class, 'destroy'])->name('admin.destroy')->middleware('admin');
+    Route::delete('/deleteLaporan/{id}', [AdminController::class, 'destroyLaporan'])->name('admin.destroyLaporan')->middleware('admin');
 });
 
 Route::group(['prefix' => '/user'], function(){
@@ -43,7 +44,14 @@ Route::group(['prefix' => '/user'], function(){
     Route::get('/edit', [PelaporController::class, 'edit'])->name('edit')->middleware('user');
     Route::post('/simpanedit', [PelaporController::class, 'update'])->name('simpanedit')->middleware('user');
     Route::get('/profil', [PelaporController::class, 'show'])->name('profil')->middleware('user');
-    // Route::get('/cetak_formulir', [PendaftarController::class, 'cetak_formulir'])->name('cetak_formulir')->middleware('user');
+    Route::get('/buatLaporan', [LaporanController::class, 'create'])->name('buatLaporan')->middleware('user');
+    Route::post('/laporkan', [LaporanController::class, 'store'])->name('laporkan')->middleware('user');
+    Route::get('/riwayatLaporan', [LaporanController::class, 'show'])->name('riwayatLaporan')->middleware('user');
+    Route::get('/showDetail/{id}', [LaporanController::class, 'showDetail'])->name('showDetail')->middleware('user');
+    Route::get('/feedback/{id}', [LaporanController::class, 'showFeedback'])->name('feedback')->middleware('user');
+    // Route::put('/ratePuas/{id}', 'LaporanController@statusFB')->name('ratePuas')->middleware('user');
+    Route::delete('/delete/{id}', [LaporanController::class, 'destroy'])->name('destroy')->middleware('user');
+   
 });
 
 Route::get('logout', [LoginController::class, 'logout']);
