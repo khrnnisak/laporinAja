@@ -79,7 +79,7 @@
                                 </button>
                             </div>
 
-                            <p class="text-sm mt-3 mb-0">Sudah punya akun? <a href="{{ url('/login') }}" class="text-dark font-weight-bolder">Masuk</a></p>
+                            <p class="text-sm mt-3 mb-0">Sudah punya akun? <a href="{{ route('login') }}" class="text-dark font-weight-bolder">Masuk</a></p>
                         </form>
                     </div>
                 </div>

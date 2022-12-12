@@ -50,8 +50,20 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li style="padding-right: 15px;"><a href="{{ url('login') }}" style="font-family:Montserrat, sans-serif;  font-weight: 500; font-size: 16px; letter-spacing: 1px; display: inline-block; padding: 3px 20px; border-radius: 50px; transition: 0.5s; color: #fff; background: #1acc8d;" class="nav-link scrollto" href="#contact">Masuk</a></li>
-                    <li><a href="{{ url('register') }}" style="font-family:Montserrat, sans-serif;  font-weight: 500; font-size: 16px; letter-spacing: 1px; display: inline-block; padding: 3px 20px; border-radius: 50px; transition: 0.5s; color: #fff; background: #1acc8d;" class="nav-link scrollto" href="#contact">Daftar</a></li>
+                    <!-- Authentication Links -->
+                    @guest
+                    @if (Route::has('login'))
+                    <li style="padding-right: 15px;">
+                        <a href="{{ route('login') }}" style="font-family:Montserrat, sans-serif;  font-weight: 500; font-size: 16px; letter-spacing: 1px; display: inline-block; padding: 3px 20px; border-radius: 50px; transition: 0.5s; color: #fff; background: #1acc8d;" class="nav-link scrollto">Masuk</a>
+                    </li>
+                    @endif
+
+                    @if (Route::has('register'))
+                    <li>
+                        <a href="{{ route('register') }}" style="font-family:Montserrat, sans-serif;  font-weight: 500; font-size: 16px; letter-spacing: 1px; display: inline-block; padding: 3px 20px; border-radius: 50px; transition: 0.5s; color: #fff; background: #1acc8d;" class="nav-link scrollto">Daftar</a>
+                    </li>
+                    @endif
+                    @endguest
                 </ul>
                 <i class="bi bi-list mobile-nav-toggle"></i>
             </nav><!-- .navbar -->
@@ -69,7 +81,7 @@
                         <h1>Sistem Informasi Pengaduan SMAN 5 MALANG</h1>
                         <h2>Sampaikan keluhan dan aspirasimu langsung kepada pihak yang berwenang melalui sistem pengaduan kami!</h2>
                         <div class="text-center text-lg-start">
-                            <a href="#about" class="btn-get-started scrollto">Lapor Sekarang</a>
+                            <a href="{{ url('login') }}" class="btn-get-started scrollto">Lapor Sekarang</a>
                         </div>
                     </div>
                 </div>
