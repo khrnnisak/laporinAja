@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Auth;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::Routes();
 
 Route::get('/', function () {
@@ -41,7 +42,7 @@ Route::group(['prefix' => '/admin'], function () {
     Route::delete('/deleteLaporan/{id}', [AdminController::class, 'destroyLaporan'])->name('admin.destroyLaporan')->middleware('admin');
 });
 
-Route::group(['prefix' => '/user'], function(){
+Route::group(['prefix' => '/user'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('user')->middleware('user');
     Route::get('/lengkap', [PelaporController::class, 'create'])->name('lengkap')->middleware('user');
     Route::post('/lengkapi', [PelaporController::class, 'store'])->name('lengkapi')->middleware('user');
@@ -55,9 +56,6 @@ Route::group(['prefix' => '/user'], function(){
     Route::get('/feedback/{id}', [LaporanController::class, 'showFeedback'])->name('feedback')->middleware('user');
     Route::put('/ratePuas/{id}', [LaporanController::class, 'statusFB'])->name('ratePuas')->middleware('user');
     Route::delete('/delete/{id}', [LaporanController::class, 'destroy'])->name('user.destroy')->middleware('user');
-   
 });
 
 Route::get('logout', [LoginController::class, 'logout']);
-
-

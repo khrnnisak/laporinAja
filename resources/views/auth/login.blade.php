@@ -46,7 +46,7 @@
                             <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                 <p class="mb-4 text-sm mx-auto">
                                     Belum punya akun?
-                                    <a href="{{ url('register') }}" class="text-primary text-gradient font-weight-bold">Buat akun</a>
+                                    <a href="{{ route('register') }}" class="text-primary text-gradient font-weight-bold">Buat akun</a>
                                 </p>
                             </div>
                         </div>
