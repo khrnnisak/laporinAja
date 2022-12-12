@@ -36,7 +36,7 @@
                         <td>{{ $a->isi }}</td>
                         <td>{{ $a->status }}</td>
                         <td>
-                        <form action="" method="POST">
+                        <form action="{{ route('user.destroy', $a->id) }}" method="POST">
                             <a class="btn btn-info" href="{{ route('showDetail', $a->id) }}">Detail</a>
                             @csrf
                             @method('DELETE')

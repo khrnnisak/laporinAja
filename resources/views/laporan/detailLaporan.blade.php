@@ -16,7 +16,6 @@
                     @endif
                     <h5 align="center"><b>Detail Pesan</b> </h5>
                     @if($fb)
-                      <p>Laporan anda selesai diproses. Silakan tinggalkan rate kepuasan</p>
                       <div class="float-right my-2">
                                     &nbsp;
                                     &nbsp;

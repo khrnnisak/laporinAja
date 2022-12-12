@@ -49,8 +49,8 @@ Route::group(['prefix' => '/user'], function(){
     Route::get('/riwayatLaporan', [LaporanController::class, 'show'])->name('riwayatLaporan')->middleware('user');
     Route::get('/showDetail/{id}', [LaporanController::class, 'showDetail'])->name('showDetail')->middleware('user');
     Route::get('/feedback/{id}', [LaporanController::class, 'showFeedback'])->name('feedback')->middleware('user');
-    // Route::put('/ratePuas/{id}', 'LaporanController@statusFB')->name('ratePuas')->middleware('user');
-    Route::delete('/delete/{id}', [LaporanController::class, 'destroy'])->name('destroy')->middleware('user');
+    Route::put('/ratePuas/{id}', [LaporanController::class, 'statusFB'])->name('ratePuas')->middleware('user');
+    Route::delete('/delete/{id}', [LaporanController::class, 'destroy'])->name('user.destroy')->middleware('user');
    
 });
 

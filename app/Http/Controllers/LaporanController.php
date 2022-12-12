@@ -97,20 +97,20 @@ class LaporanController extends Controller
         $feedback = DB::table('feedback')->where('laporan_id', $id)->first();
         return view('laporan.feedback', compact('feedback'));
     }
-    // public function statusFB(Request $request, $id){
-    //     $request->validate([
-    //         'status' => 'required',
-    //     ]);
+    public function statusFB(Request $request, $id){
+        $request->validate([
+            'status' => 'required',
+        ]);
 
-    //     $feedback = Feedback::where('laporan_id', $id)->first();
+        $feedback = Feedback::where('laporan_id', $id)->first();
         
-    //     $feedback->status = $request->get('status');
-    //     $feedback->kritik = $request->get('kritik');
-    //     $feedback->save();
+        $feedback->status = $request->get('status');
+        $feedback->kritik = $request->get('kritik');
+        $feedback->save();
         
-    //     return redirect()->route('ratePuas', $id)
-    //         ->with('success', 'Terima kasih!!');
-    // }
+        return redirect()->route('showDetail', $id)
+            ->with('success', 'Terima kasih!!');
+    }
     
 
     /**
@@ -145,6 +145,14 @@ class LaporanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $laporan = Laporan::where('id', $id)->first();
+        
+        if($laporan != null){
+            $laporan->delete();
+            return redirect()->route('riwayatLaporan')
+                ->with('success', 'Laporan Berhasil Dihapus');
+        }
+        return redirect()->route('riwayatLaporan')
+            ->with('success', 'Laporan Gagal Dihapus');
     }
 }

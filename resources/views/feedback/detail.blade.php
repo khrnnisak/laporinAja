@@ -26,11 +26,19 @@
                                 <td>: {{ $feedback ->isi }}</td>
                               </tr>
                               <tr>
+                                <td class="table-info" width="200px">Status</td>
+                                <td>: {{ $feedback ->status }}</td>
+                              </tr>
+                              <tr>
+                                <td class="table-info" width="200px">Kritik dan Saran</td>
+                                <td>: {{ $feedback ->kritik }}</td>
+                              </tr>
+                              <tr>
                           </div>
                           <div class="float-right my-2">
                                     &nbsp;
                                     &nbsp;
-                                    <a class="btn btn-success" href="{{ route('showDetailLaporan', $feedback->id) }}">Kembali</a>
+                                    <a class="btn btn-success" href="{{ route('showDetailLaporan', $feedback->laporan_id) }}">Kembali</a>
                             </div>
                     @endif 
                     
