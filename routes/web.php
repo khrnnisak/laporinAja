@@ -23,6 +23,10 @@ use Illuminate\Support\Facades\Auth;
 */
 Auth::Routes();
 
+Route::get('/', function () {
+    return view('landing');
+});
+
 Route::group(['prefix' => '/admin'], function () {
     Route::get('/', [HomeController::class, 'index'])->name('admin')->middleware('admin');
     Route::get('/dataPengguna', [AdminController::class, 'showPengguna'])->name('admin.showPengguna')->middleware('admin');
