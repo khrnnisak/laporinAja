@@ -12,7 +12,7 @@
           <li class="breadcrumb-item text-sm"><a class="opacity-5 text-white" href="javascript:;">Halaman</a></li>
           <li class="breadcrumb-item text-sm text-white active" aria-current="page">Laporan</li>
         </ol>
-        <h6 class="font-weight-bolder text-white mb-0">Lihat Pesan</h6>
+        <h6 class="font-weight-bolder text-white mb-0">Lihat Laporan</h6>
       </nav>
       <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
