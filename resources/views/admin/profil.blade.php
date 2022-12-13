@@ -1,64 +1,74 @@
-@extends('layouts.app')
-<br><br>
-<br><br>
-<br><br>
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10">
-            <div class="card border-primary">
+@extends('layouts.main')
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-                    <h5 align="center"><b>IDENTITAS</b> </h5>
-                    @if($user)
-                    <table class="table table-sm">
-                            <tbody>
-                              <tr>
-                                <td class="table-info">Email</td>
-                                <td>: {{$user->email  }}</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info">Username</td>
-                                <td>: {{$user->username  }}</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info" width="200px">Nama Awal</td>
-                                <td>: -</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info">Nama Akhir</td>
-                                <td>: -</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info" width="200px">Alamat</td>
-                                <td>: -</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info">Kota</td>
-                                <td>: -</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info">Provinsi</td>
-                                <td>: -</td>
-                              </tr>
-                              <tr>
-                                <td class="table-info">Kode Pos</td>
-                                <td>: -</td>
-                              </tr>
-                          </div>
-                    @endif
-                    <div class="float-right my-2">
-                      &nbsp;
-                      &nbsp;
-                      <a class="btn btn-success" href="{{ route('admin') }}">Kembali</a>
-                    </div>
-            </div>
+@section('title', 'Profil')
+
+
+
+@section('content')
+<div class="main-content position-relative max-height-vh-100 h-100">
+  <div class="card shadow-lg mx-4 card-profile-bottom">
+    <div class="card-body p-3">
+      @if (session('status'))
+      <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+      </div>
+      @endif
+      @if($user)
+      <div class="row gx-4">
+        <div class="col-auto">
+          <div class="avatar avatar-xl position-relative">
+            <img src="../assets/img/team-1.jpg" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+          </div>
         </div>
+        <div class="col-auto my-auto">
+          <div class="h-100">
+            <h5 class="mb-1">
+              {{$user->username }}
+            </h5>
+            <p class="mb-0 font-weight-bold text-sm">
+              Admin
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-@endsection
+  </div>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-body">
+            <p class="text-uppercase text-sm">User Information</p>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Username</label>
+                  <input class="form-control" type="text" value="{{$user->username }}" readonly>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Email address</label>
+                  <input class="form-control" type="email" value="{{$user->email }}" readonly>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">First name</label>
+                  <input class="form-control" type="text" value="Admin" readonly>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="example-text-input" class="form-control-label">Last name</label>
+                  <input class="form-control" type="text" value="Only" readonly>
+                </div>
+              </div>
+            </div>
+          </div>
+          @endif
+        </div>
+      </div>
+    </div>
+  </div>
+  @endsection

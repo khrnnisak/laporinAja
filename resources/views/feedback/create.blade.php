@@ -66,9 +66,9 @@
                                 </div>
 
                                 <div class="col-md-12">
+                                    <label for="example-text-input" class="form-control-label">Tambah Foto</label>
                                     <div class="form-group">
-                                        
-                                            <input id="foto" type="file" class="btn btn-icon btn-3 btn-primary{{ $errors->has('foto') ? ' is-invalid' : '' }}" name="foto" value="{{ old('foto') }}" required autofocus>
+                                        <input id="foto" type="file" class="btn btn-icon btn-3 btn-primary{{ $errors->has('foto') ? ' is-invalid' : '' }}" name="foto" value="{{ old('foto') }}" required autofocus>
 
                                         @if ($errors->has('foto'))
                                         <span class="invalid-feedback" role="alert">
@@ -77,20 +77,21 @@
                                         @endif
                                     </div>
                                 </div>
-
                                 <div class="col-md-8"></div>
                                 <div class="col-md-4">
-                                    <button class="btn btn-icon btn-3 btn-danger" type="button">
-                                        <a href="#" class="nav-link text-white font-weight-bold px-0">Batal</a>
-                                    </button>
                                     <button class="btn btn-icon btn-3 btn-success" type="submit">
                                         <a class="nav-link text-white font-weight-bold px-0">Kirim</a>
                                     </button>
-                                </div>
                             </form>
+                            <button class="btn btn-icon btn-3 btn-danger" type="button">
+                                <a href="{{ route('admin.showLaporan') }}" class="nav-link text-white font-weight-bold px-0">Batal</a>
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+    </div>
 </main>
 @endsection
