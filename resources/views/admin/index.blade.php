@@ -55,9 +55,7 @@
                             <div class="col-8">
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Jumlah User</p>
-                                    <h2 class="font-weight-bolder">
-                                        20
-                                    </h2>
+                                    <h2 class="font-weight-bolder">{{ $users }}</h2>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -76,9 +74,7 @@
                             <div class="col-8">
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Laporan Masuk</p>
-                                    <h2 class="font-weight-bolder">
-                                        23
-                                    </h2>
+                                    <h2 class="font-weight-bolder">{{$masuk}}</h2>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -97,9 +93,7 @@
                             <div class="col-8">
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Sedang Diproses</p>
-                                    <h2 class="font-weight-bolder">
-                                        3
-                                    </h2>
+                                    <h2 class="font-weight-bolder">{{$proses}}</h2>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
@@ -118,9 +112,7 @@
                             <div class="col-8">
                                 <div class="numbers">
                                     <p class="text-sm mb-0 text-uppercase font-weight-bold">Laporan Selesai</p>
-                                    <h2 class="font-weight-bolder">
-                                        20
-                                    </h2>
+                                    <h2 class="font-weight-bolder">{{$selesai}}</h2>
                                 </div>
                             </div>
                             <div class="col-4 text-end">
