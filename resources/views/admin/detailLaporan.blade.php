@@ -18,10 +18,15 @@
         <div class="ms-md-auto pe-md-3 d-flex align-items-center">
           <ul class="navbar-nav  justify-content-end">
             <li class="nav-item d-flex align-items-center">
-              <a href="{{ url('/') }}" class="nav-link text-white font-weight-bold px-0">
+              <a class="nav-link text-white font-weight-bold px-0" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                 <i class="fa fa-sign-out-alt me-sm-1"></i>
-                <span class="d-sm-inline d-none">Keluar</span>
+                {{ __('Keluar') }}
               </a>
+
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                @csrf
+              </form>
             </li>
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
               <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
@@ -107,12 +112,21 @@
           </a>
         </button>
         </form>
+        @if($feedback)
+        <button class="btn btn-icon btn-3 btn-primary" type="button">
+          <a href="{{ route('showFeedback', $laporan->id) }}" class="nav-link text-white font-weight-bold px-0">
+            <i class="fa fa-reply"></i>
+            <span class="d-sm-inline d-none">Lihat Feedback</span>
+          </a>
+        </button>
+        @else
         <button class="btn btn-icon btn-3 btn-primary" type="button">
           <a href="{{ route('feedback.create', $laporan->id) }}" class="nav-link text-white font-weight-bold px-0">
             <i class="fa fa-reply"></i>
             <span class="d-sm-inline d-none">Balas</span>
           </a>
         </button>
+        @endif
       </div>
     </div>
   </div>
