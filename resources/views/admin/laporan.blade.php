@@ -104,7 +104,15 @@
                                             <p class="text-xs font-weight-bold mb-0">{{ $a->isi }}</p>
                                         </td>
                                         <td class="align-middle text-center text-sm">
+                                            @if($a->status == 'Ditolak')
+                                            <span class="badge badge-sm bg-gradient-danger">{{ $a->status }}</span>
+                                            @elseif($a->status == 'Diproses')
+                                            <span class="badge badge-sm bg-gradient-warning">{{ $a->status }}</span>
+                                            @elseif($a->status == 'Masuk')
                                             <span class="badge badge-sm bg-gradient-primary">{{ $a->status }}</span>
+                                            @else
+                                            <span class="badge badge-sm bg-gradient-success">{{ $a->status }}</span>
+                                            @endif
                                         </td>
                                         <td class="align-middle text-center text-sm">
                                             <form action="{{ route('admin.destroyLaporan', $a->id) }}" method="POST">

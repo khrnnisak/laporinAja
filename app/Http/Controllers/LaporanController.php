@@ -45,26 +45,26 @@ class LaporanController extends Controller
      */
     public function store(Request $request)
     {
-        if ($request->file('foto')){
+        if ($request->file('foto')) {
             $image_name = $request->file('foto')->store('image', 'public');
         }
-            $request->validate([
-                'kategori' => 'required',
-                'isi' => 'required',
-                'foto' => 'mimes:jpeg,png,jpg|max:2048',
-            ]);            
-            $laporan = new Laporan;
+        $request->validate([
+            'kategori' => 'required',
+            'isi' => 'required',
+            'foto' => 'mimes:jpeg,png,jpg|max:2048',
+        ]);
+        $laporan = new Laporan;
 
-            $user = Auth::user()->id;
-            $laporan->user_id = $user;
-            $laporan->is_hidden = $request->has('is_hidden');
-            $laporan->kategori = $request->get('kategori');
-            $laporan->isi = $request->get('isi');
-            $laporan->foto = $image_name;
-            
-            $laporan->save();
-            
-            return redirect()->route('user')->with('success', 'Laporan berhasil dikirim!');
+        $user = Auth::user()->id;
+        $laporan->user_id = $user;
+        $laporan->is_hidden = $request->has('is_hidden');
+        $laporan->kategori = $request->get('kategori');
+        $laporan->isi = $request->get('isi');
+        $laporan->foto = $image_name;
+
+        $laporan->save();
+
+        return redirect()->route('riwayatLaporan')->with('success', 'Laporan berhasil dikirim!');
     }
 
     /**
@@ -78,40 +78,41 @@ class LaporanController extends Controller
         $id = Auth::user()->id;
         $akun = Auth::user();
         $paginate = Laporan::where('user_id', $id)->orderBy('created_at', 'asc')->paginate(5);
-        $laporan = Laporan::join('user','user.id','laporan.user_id')
-                ->select('laporan.*','user.username')
-                ->where('laporan.user_id' , $id)
-                ->first();
+        $laporan = Laporan::join('user', 'user.id', 'laporan.user_id')
+            ->select('laporan.*', 'user.username')
+            ->where('laporan.user_id', $id)
+            ->first();
 
-        return view('laporan.riwayat', compact( 'laporan', 'paginate'));
-        
+        return view('laporan.riwayat', compact('laporan', 'paginate'));
     }
     public function showDetail($id)
     {
-       
+
         $laporan = DB::table('laporan')->where('id', $id)->first();
         $fb = DB::table('feedback')->where('laporan_id', $id)->first();
         return view('laporan.detailLaporan', compact('laporan', 'fb'));
     }
-    public function showFeedback($id){
+    public function showFeedback($id)
+    {
         $feedback = DB::table('feedback')->where('laporan_id', $id)->first();
         return view('laporan.feedback', compact('feedback'));
     }
-    public function statusFB(Request $request, $id){
+    public function statusFB(Request $request, $id)
+    {
         $request->validate([
             'status' => 'required',
         ]);
 
         $feedback = Feedback::where('laporan_id', $id)->first();
-        
+
         $feedback->status = $request->get('status');
         $feedback->kritik = $request->get('kritik');
         $feedback->save();
-        
+
         return redirect()->route('showDetail', $id)
             ->with('success', 'Terima kasih!!');
     }
-    
+
 
     /**
      * Show the form for editing the specified resource.
@@ -121,8 +122,6 @@ class LaporanController extends Controller
      */
     public function edit($id)
     {
-        
-        
     }
 
     /**
@@ -146,8 +145,8 @@ class LaporanController extends Controller
     public function destroy($id)
     {
         $laporan = Laporan::where('id', $id)->first();
-        
-        if($laporan != null){
+
+        if ($laporan != null) {
             $laporan->delete();
             return redirect()->route('riwayatLaporan')
                 ->with('success', 'Laporan Berhasil Dihapus');
