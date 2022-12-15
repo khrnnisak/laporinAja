@@ -24,7 +24,12 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        // $user = DB::table('user')->where('role', 'User')->count();
+        // // return dd($user);
+        // $masuk = Laporan::where('status', 'Masuk')->count();
+        // $proses = Laporan::where('status', 'Diproses')->count();
+        // $selesai = Laporan::where('status', 'selesai')->count();
+        return view('admin.index', ['user' => $user, ]);
     }
 
     /**
