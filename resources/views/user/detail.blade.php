@@ -146,6 +146,98 @@
                 </div>
               </div>
             </div>
+            @else
+            <div class="row gx-4">
+          <div class="col-auto">
+            <div class="avatar avatar-xl position-relative">
+              <img src="" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
+            </div>
+          </div>
+          @if($otherData)
+          <div class="col-auto my-auto">
+            <div class="h-100">
+              <h5 class="mb-1">
+                {{$otherData->username }}
+              </h5>
+              <p class="mb-0 font-weight-bold text-sm">
+                User
+              </p>
+            </div>
+          </div>
+          <div class="col md-8"></div>
+          <div class="col-auto my-auto">
+            <button class="btn btn-warning btn-sm ms-auto" style="background-color: #11cdef;">
+              <a href="{{ route('lengkap') }}" class="nav-link text-white font-weight-bold px-0">
+                <i class="fa fa-pencil"></i>
+                <span class="d-sm-inline d-none">Lengkapi Data</span>
+              </a>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <p class="text-uppercase text-sm">INFORMASI USER</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Username</label>
+                    <input class="form-control" type="text" value="{{$otherData->username  }}" readonly>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Email address</label>
+                    <input class="form-control" type="email" value="{{$otherData->email  }}" readonly></input>
+                  </div>
+                </div>
+                @endif
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Nama Awal</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Nama Akhir</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+              </div>
+              <hr class="horizontal dark">
+              <p class="text-uppercase text-sm">Informasi Kontak</p>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Alamat</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Kota</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Provinsi</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <label for="example-text-input" class="form-control-label">Kode Pos</label>
+                    <input class="form-control" type="text"readonly>
+                  </div>
+                </div>
+              </div>
+            </div>
             @endif
           </div>
         </div>
