@@ -54,14 +54,14 @@
                     <div class="card-header pb-0">
                         <h6>Pesan Masuk</h6>
                     </div>
-                    @if ($message = Session::get('success'))
-                    <div class="alert alert-success">
-                        <p>{{ $message }}</p>
-                    </div>
-                    @endif
-
                     <div class="card-body px-0 pt-0 pb-2">
                         <div class="table-responsive p-0">
+                            @if ($message = Session::get('success'))
+                            <div class="alert alert-success">
+                                <p>{{ $message }}</p>
+                            </div>
+                            @endif
+
                             @if ($laporan)
                             <table class="table align-items-center mb-0">
                                 <thead>
@@ -132,7 +132,7 @@
                                             </form>
                                         </td>
                                     </tr>
-                                    @endforeach
+                                @endforeach
                                 </tbody>
                             </table>
                             @else

@@ -72,8 +72,8 @@
                                         <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Aksi</th>
                                     </tr>
                                 </thead>
-                                @foreach ($paginate as $a)
                                 <tbody>
+                                    @foreach ($paginate as $a)
                                     <tr>
                                         <td>
                                             <div class="d-flex px-2 py-1">
@@ -114,8 +114,8 @@
                                             </form>
                                         </td>
                                     </tr>
+                                    @endforeach
                                 </tbody>
-                                @endforeach
                             </table>
                             @else
                             <div class="row">
