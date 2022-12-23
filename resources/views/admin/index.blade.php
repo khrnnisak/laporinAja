@@ -129,15 +129,36 @@
             <div class="col-lg-7 mb-lg-0 mb-4">
                 <div class="card z-index-2 h-100">
                     <div class="card-header pb-0 pt-3 bg-transparent">
-                        <h6 class="text-capitalize">Sales overview</h6>
-                        <p class="text-sm mb-0">
-                            <i class="fa fa-arrow-up text-success"></i>
-                            <span class="font-weight-bold">4% more</span> in 2021
-                        </p>
+                        <h6 class="text-capitalize">Selamat Datang!</h6>
                     </div>
                     <div class="card-body p-3">
-                        <div class="chart">
-                            <canvas id="chart-line" class="chart-canvas" height="300"></canvas>
+                        <div class="inside">
+                            <div class="content" style="margin-top: 40px; width: auto; height: auto; text-align: center;">
+                                <p class="days" style="font-size: 1.3rem; ">
+                                    <span id="sun">SUN</span>&ensp;
+                                    <span id="mon">MON</span>&ensp;
+                                    <span id="tue">TUE</span>&ensp;
+                                    <span id="wed">WED</span>&ensp;
+                                    <span id="thu">THU</span>&ensp;
+                                    <span id="fri">FRI</span>&ensp;
+                                    <span id="sat">SAT</span>
+                                </p>
+                                <br>
+                                <p class="text" style="font-size: 2.5rem; font-weight:bold;">
+                                    <span id="hours"></span> :
+                                    <span id="min"></span> :
+                                    <span id="sec"></span>
+                                    <span id="time"></span>
+                                </p>
+                                <p id="date">
+                                    <span id="cal">
+                                        <i class="fa fa-calendar-alt" style="color: blue;"></i>
+                                    </span>
+                                    <span id="day"></span>
+                                    <span id="month"></span>
+                                    <span id="year"></span>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
