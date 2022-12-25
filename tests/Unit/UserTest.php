@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use App\Models\Laporan;
 use Tests\TestCase;
 use App\Models\User;
 use Database\Seeders\UserSeeder;
@@ -9,6 +10,8 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Illuminate\Foundation\Testing\WithoutMiddleware;
+use Illuminate\Support\Facades\Storage;
 
 class UserTest extends TestCase
 {
@@ -38,7 +41,7 @@ class UserTest extends TestCase
     }
 
     public function test_login_functionally()
-{
+    {
         $user = User::factory()->create([
             'username' => 'Affan',
             'name' => 'affanna',
@@ -53,45 +56,33 @@ class UserTest extends TestCase
         $response->assertValid();
         $this->assertAuthenticated();
         $response->assertRedirect('user');
-        
     }
 
-    public function test_send_report_functionally()
-    {
-        $user = User::factory()->create([
-            'username' => 'Affin',
-            'name' => 'afinna',
-            'email' => 'affinna@gmail.com',
-            'password' => bcrypt('affinna9090'),
-        ]);
+    // public function test_send_report_functionally()
+    // {
+    //     $user =  new User([
+    //         'username' => 'Affin',
+    //         'name' => 'afinna',
+    //         'email' => 'affinna@gmail.com',
+    //         'password' => 'affinna9090',
+    //     ]);
 
-        $response = $this->post('/login', [
-            'username' => $user->username,
-            'password' => 'affinna9090'
-        ]);
-        $response->assertValid();
-        $this->actingAs($user);
-        $response->assertRedirect('user');
-        $response = $this->get('/buatLaporan');
-        $file = UploadedFile::fake()->image('image.jpg');
-        $data = [
-            'kategori' => 'Aspirasi',
-            'isi' => 'Minta tolong dibenerin ya, acnya bocor',
-            'foto'=> $file,
-            'is_hidden' => 1,
-            'user_id' => $user->id,
-        ];
-        $response = $this->call('POST', '/laporkan', $data);
-        $response->assertStatus(302);
-        $response->assertRedirect('/riwayatLaporan');
-        $this->assertDatabaseHas('laporan', [
-            'kategori' => $data['kategori'],
-            'isi' => $data['isi'],
-            'foto' => $data['foto'],
-            'is_hidden' => $data['is_hidden'],
-            'user_id' => $user->id,
-        ]);
-        
-    }
+    //     $user->save();
 
+    //     Storage::fake('public');
+    //     $file = UploadedFile::fake()->image('image.jpg');
+    //     $data = [
+    //         'kategori' => 'Aspirasi',
+    //         'isi' => 'Minta tolong dibenerin ya, acnya bocor',
+    //         'foto' => $file,
+    //         'is_hidden' => 1,
+    //         'user_id' => $user->id,
+    //     ];
+    //     $laporan = new Laporan(
+    //         $data
+    //     );
+
+    //     $laporan->save();
+    //     $this->assertDatabaseHas('laporan', $data);
+    // }
 }

@@ -83,6 +83,7 @@
   <script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
   <script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+  <script src="{{ asset('assets/js/plugins/chartjs.min.js') }}"></script>
   <script>
     var win = navigator.platform.indexOf('Win') > -1;
     if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -96,6 +97,38 @@
   <script async defer src="https://buttons.github.io/buttons.js"></script>
   <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
   <script src="{{ asset('assets/js/argon-dashboard.min.js?v=2.0.4') }}"></script>
+
+  <script>
+    var daysofweek = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
+    var month = ['JAN', 'FEB', 'MAR', 'APR', 'MEI', 'JUN', 'JUL', 'AUG', 'SEP', 'OKT', 'NOV', 'DES'];
+
+    function clock() {
+      var today = new Date();
+      var h = today.getHours();
+      var m = today.getMinutes();
+      var s = today.getSeconds();
+      var day = h < 11 ? "AM" : "PM";
+      var dayToday = today.getDay();
+      var date = today.getDate();
+      var mon = today.getMonth();
+      var year = today.getFullYear();
+
+      h = h < 10 ? '0' + h : h;
+      m = m < 10 ? '0' + m : m;
+      s = s < 10 ? '0' + s : s;
+
+      document.getElementById('hours').innerHTML = h;
+      document.getElementById('min').innerHTML = m;
+      document.getElementById('sec').innerHTML = s;
+      document.getElementById('time').innerHTML = day;
+      document.getElementById('' + daysofweek[dayToday] + '').style.color = "#000";
+      document.getElementById('day').innerHTML = date;
+      document.getElementById('month').innerHTML = month[mon];
+      document.getElementById('year').innerHTML = year;
+    }
+var inter = setInterval(clock, 400);
+
+  </script>
 </body>
 
 </html>

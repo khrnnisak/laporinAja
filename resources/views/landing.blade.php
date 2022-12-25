@@ -119,25 +119,32 @@
                     </div>
 
                     <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5" data-aos="fade-left">
-                        <h3>Enim quis est voluptatibus aliquid consequatur fugiat</h3>
-                        <p>Esse voluptas cumque vel exercitationem. Reiciendis est hic accusamus. Non ipsam et sed minima temporibus laudantium. Soluta voluptate sed facere corporis dolores excepturi. Libero laboriosam sint et id nulla tenetur. Suscipit aut voluptate.</p>
+                        <h3>Pentingnya Pengaruh Fasilitas Belajar Terhadap Prestasi Siswa </h3>
+                        <p>Fasilitas belajar memiliki peranan penting untuk meningkatkan mutu pendidikan agar
+                            dapat menghasilkan siswa yang berkualitas. Untuk itu sekolah telah memberikan sarana dan prasarana yang dapat dimanfaatkan oleh guru dan siswa
+                            untuk menunjang kegiatan belajar mengajar.</p>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="100">
                             <div class="icon"><i class="bx bx-fingerprint"></i></div>
-                            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-                            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+                            <h4 class="title"><a href="">Infrastruktur</a></h4>
+                            <p class="description">Peningkatan prasarana dasar yang dibangun di dalam sekolah terus dilakukan seperti pemeliharaan taman dan lapangan
+                                agar lingkungan tetap asri dan nyaman digunakan untuk melakukan aktivitas pembelajaran.
+                            </p>
                         </div>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="icon"><i class="bx bx-gift"></i></div>
-                            <h4 class="title"><a href="">Nemo Enim</a></h4>
-                            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+                            <div class="icon"><i class="bx bx-atom"></i></div>
+                            <h4 class="title"><a href="">Sarana Pembelajaran</a></h4>
+                            <p class="description">Sekolah terus memberikan sarana pembelajaran terbaik untuk memfasilitasi guru dan siswa agar memiliki pengalaman belajar
+                                yang efektif dan menyenangkan seperti penyediaan laboratorium dengan fasilitas yang memadai.</p>
                         </div>
 
                         <div class="icon-box" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="icon"><i class="bx bx-atom"></i></div>
-                            <h4 class="title"><a href="">Dine Pad</a></h4>
-                            <p class="description">Explicabo est voluptatum asperiores consequatur magnam. Et veritatis odit. Sunt aut deserunt minus aut eligendi omnis</p>
+                            <div class="icon"><i class="bx bx-book"></i></div>
+                            <h4 class="title"><a href="">Perpustakaan Sekolah</a></h4>
+                            <p class="description">Untuk meningkatkan minat baca para siswa serta menyediakan layanan baca yang memadai, sekolah telah menyiapkan
+                                perpustakaan sekolah dengan koleksi buku yang lengkap.
+                            </p>
                         </div>
 
                     </div>
@@ -298,7 +305,7 @@
 
                     <div class="col-lg-3 col-md-6 mx-auto">
                         <div class="member" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpg') }}" class="img-fluid" alt=""></div>
+                            <div class="pic"><img src="{{ asset('assets/img/team/team-1.jpeg') }}" class="img-fluid" alt=""></div>
                             <div class="member-info">
                                 <h4>Amelia Marshanda Syahputri</h4>
                                 <span>2041720041</span>
